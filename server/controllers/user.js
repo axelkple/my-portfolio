@@ -137,6 +137,7 @@ export const me = async (req, res) => {
     const user = await User.findById(req.auth.id);
     if (!user) return res.status(401).json({ message: 'User no longer exists' });
     res.json({ _id: user._id, name: user.name, email: user.email });
+    
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
